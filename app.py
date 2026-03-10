@@ -43,5 +43,13 @@ def crea_offerta():
 		offerte = list(collection.find({}, {"_id" : 0})) #Legge tutti i doc dal db, _id=0 esclude il campo _id che aggiunge MongoDB al doc
 		return jsonify(offerte) #Restituisce la lista delle offerte come JSON alla pagina HTML
 
+@app.route("/static/service-worker.js")
+def service_worker():
+	return app.send_static_file("service-worker.js")	
+
+@app.route("/favicon.ico")
+def favicon():
+    return app.send_static_file("icons/icon-192.png")
+
 if __name__ == "__main__":
 	app.run(debug = True)

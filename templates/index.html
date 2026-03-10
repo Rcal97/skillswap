@@ -11,6 +11,10 @@
 
 	<!--Il foglio di stile CSS-->
 	<link rel="stylesheet" href="/static/css/style.css"/>
+
+	<!--PWA Manifest-->
+	<link rel="manifest" href="/static/manifest.json"/>
+	<meta name="theme-color" content="#028090"/>
 </head>
 
 <body>
@@ -58,6 +62,17 @@
 
     <!--Codice JS -->
     <script src="/static/js/main.js"></script>
+
+    <!--Registrazione Service Worker-->
+    <script>
+    	if('serviceWorker' in navigator)
+    	{
+    		navigator.serviceWorker.register('/static/service-worker.js').then(function()
+    		{
+    			console.log('Service Worker registrato');
+    		});
+    	}
+    </script>
 
 </body>
 
