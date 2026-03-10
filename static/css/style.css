@@ -1,0 +1,102 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body
+{
+	font-family: Calibri, sans-serif;
+	background-color: #f4f4f4;
+	color: #333;
+}
+
+/* Header */
+header
+{
+	background-color: #028090;
+	color: white;
+	padding: 20px;
+	text-align: center;
+}
+
+header h1
+{
+	font-size: 2em;
+}
+
+header p
+{
+	font-size: 1em;
+	margin-top: 5px;
+}
+
+/* Main layout */
+main
+{
+	display: flex;
+	gap: 20px;
+	padding: 20px;
+}
+
+/* Form */
+#sezione-form
+{
+	flex: 1;
+	background: white;
+	padding: 20px;
+	border-radius: 8px;
+}
+
+#sezione-form h2
+{
+	margin-bottom: 15px;
+	color: #028090;
+}
+
+#form-offerta input[type="text"]
+{
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 1em;
+}
+
+#form-offerta button 
+{
+	width: 100%;
+	padding: 12px;
+	background-color: #028090;
+	color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+
+#form-offerta button:hover {
+    background-color: #025f6b;
+}
+
+/* Mappa */
+#sezione-mappa {
+    flex: 2;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#sezione-mappa h2 
+{
+    margin-bottom: 15px;
+    color: #028090;
+}
+
+#mappa 
+{
+    height: 500px;
+    border-radius: 4px;
+}

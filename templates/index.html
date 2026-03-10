@@ -5,16 +5,60 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SkillSwap</title>
+
+	<!--Qui va il CSS Leaflet-->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+	<!--Il foglio di stile CSS-->
+	<link rel="stylesheet" href="/static/css/style.css"/>
 </head>
 
 <body>
-	<h1>
-		Benvenuto su SkillSwap!
-	</h1>
 
-	<p>
-		La piattaforma per scambiare competenze nel tuo quartiere.
-	</p>
+	<header>
+		<h1>
+			Benvenuto su SkillSwap!
+		</h1>
+	</header>
+
+	<main>
+		<!--Questo è il form per inserire le offerte-->
+		<section id="sezione-from">
+			<h2>
+				Pubblica qui un'offerta
+			</h2>
+
+			<form id="form-offerta">
+				<input type="text" id="nome" placeholder="Il tuo nome" required/>
+				<input type="text" id="offro" placeholder="Cosa offri?" required/>
+				<input type="text" id="cerco" placeholder="Cosa cerchi?" required/>
+                <input type="text" id="quartiere" placeholder="Il tuo quartiere" required/>
+                
+                <p>Clicca sulla mappa per scegliere la tua posizione</p>
+                <input type="hidden" id="lat"/>
+                <input type="hidden" id="lng"/>
+                <button type="submit">Pubblica la tua offerta</button>
+             </form>
+        </section>
+
+        <!--QUI C'È LA MAPPA-->
+        <section id="sezione-mappa">
+        	<h2>
+        		Offerte nella tua zona
+        	</h2>
+        	<div id = "mappa"></div>
+        </section>
+    </main>
+
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!--Leafleft JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!--Codice JS -->
+    <script src="/static/js/main.js"></script>
+
 </body>
 
 </html>
