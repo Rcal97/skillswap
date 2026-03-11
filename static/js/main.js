@@ -2,11 +2,23 @@
 var mappa = L.map('mappa').setView([40.8518,14.2681], 13);
 
 //Aggiunge il layer delle tile OpenStreetMap
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	attribution: 'OpenStreetMap contributors'}).addTo(mappa);
 
 //Variabile per il marker di posizione scelta dall'utente
 var markerUtente = null;
+
+//Aggiunta Geolocalizzazione
+if(navigator.geolocation) {
+	navigator.geolocation.getCurrentPosition(function(position) {
+		var lat = position.coords.latitude;
+		var lng = position.coords.longitude;
+		mappa.setView([lat,lng],13);
+
+	}, function(errore) {
+		console.log('Geolocalizzazione non riuscita!');
+	});
+}
 
 //Click sulla mappa: imposta la posizione dell'offerte
 mappa.on('click', function(e) {
