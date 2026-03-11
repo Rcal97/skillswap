@@ -18,6 +18,7 @@ def crea_offerta():
 	if  request.method == "POST":
 		dati = request.get_json() #Legge dati JSON che arrivano dalla pagina HTML in dati
 		nome = dati.get("nome")
+		telefono = dati.get("telefono")
 		offro = dati.get("offro")
 		cerco = dati.get("cerco")
 		quartiere = dati.get("quartiere")
@@ -29,6 +30,7 @@ def crea_offerta():
 		nuova_offerta = {
 			"nome": nome,
 			"offro": offro,
+			"telefono": dati.get("telefono"),
 			"cerco": cerco,
 			"quartiere": quartiere,
 			"latitudine": latitudine,
@@ -50,6 +52,13 @@ def service_worker():
 @app.route("/favicon.ico")
 def favicon():
     return app.send_static_file("icons/icon-192.png")
+
+#Aggiungo il tasto per eliminare un'offerta
+#poichè un'utente può cambiare idea e voler rimuovere l'offerta fatta
+@app.route("/api/offerte/<nome>", methods=["DELETE"])
+def elimina_offerta(nome):
+	collection.delete_one({"nome": nome})
+	return jsonify({"messaggio": "Offerta eliminata!"})
 
 if __name__ == "__main__":
 	app.run(debug = True)

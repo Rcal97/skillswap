@@ -51,11 +51,26 @@ function caricaOfferte()
 						.addTo(mappa)
 						.bindPopup(
 							'<b>' + offerta.nome + '</b><br>' +
-							 'Offro: ' + offerta.offro + '<br>' +
-							 'Cerco: ' + offerta.cerco + '<br>' +
-							 'Quartiere: ' + offerta.quartiere );
+							'Telefono: ' + offerta.telefono + '<br>' +
+							'Offro: ' + offerta.offro + '<br>' +
+							'Cerco: ' + offerta.cerco + '<br>' +
+							'Quartiere: ' + offerta.quartiere + '<br>' +
+							'<button onclick="eliminaOfferta(\'' + offerta.nome + '\')">Elimina</button>'
+							);
 				}
 			});
+		}
+	});
+}
+
+//Funzione per eliminare un'offerta dal db
+function eliminaOfferta(nome) {
+	$.ajax( {
+		url: '/api/offerte/' + nome,
+		method: 'DELETE',
+		success: function(risposta) {
+			alert(risposta.messaggio);
+			location.reload();
 		}
 	});
 }
@@ -66,6 +81,7 @@ $('#form-offerta').on('submit', function(e) {
 
     var dati = {
         nome: $('#nome').val(),
+        telefono: $('#telefono').val(),
         offro: $('#offro').val(),
         cerco: $('#cerco').val(),
         quartiere: $('#quartiere').val(),
